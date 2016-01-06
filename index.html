@@ -62,7 +62,10 @@ var layers = document.getElementById('menu-ui');
 addLayer(L.mapbox.tileLayer('mapbox.satellite'), 'Base Map', 1);
 addLayer(L.mapbox.tileLayer('pratikyadav.332dd523'), 'Buildings', 2);
 addLayer(L.mapbox.tileLayer('pratikyadav.93f1df6f'), 'Roads', 3);
-addLayer(L.mapbox.tileLayer('pratikyadav.93f1df6f'), 'Roads', 4);
+addLayer(L.mapbox.tileLayer('pratikyadav.640d9a4d'), 'Roads names', 4);
+addLayer(L.mapbox.tileLayer('pratikyadav.60790d53'), 'Admin', 5);
+addLayer(L.mapbox.tileLayer('pratikyadav.93b9339f'), 'Waterway', 6);
+addLayer(L.mapbox.tileLayer('pratikyadav.4417f8bf'), 'Landuse', 7);
 
 function addLayer(layer, name, zIndex) {
     layer
