@@ -60,19 +60,22 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicHJhdGlreWFkYXYiLCJhIjoiMTA2YWUxNjRkNmFmZGQ4Y
 var map = L.mapbox.map('map').setView([38.8922,-77.0348], 14);
 var layers = document.getElementById('menu-ui');
 
-addLayer(L.mapbox.tileLayer('mapbox.satellite'), 'Base Map', 1);
-addLayer(L.mapbox.tileLayer('pratikyadav.332dd523'), 'Buildings', 2);
-addLayer(L.mapbox.tileLayer('pratikyadav.93f1df6f'), 'Roads', 3);
-addLayer(L.mapbox.tileLayer('pratikyadav.640d9a4d'), 'Roads names', 4);
-addLayer(L.mapbox.tileLayer('pratikyadav.60790d53'), 'Admin', 5);
-addLayer(L.mapbox.tileLayer('pratikyadav.93b9339f'), 'Waterway', 6);
-addLayer(L.mapbox.tileLayer('pratikyadav.4417f8bf'), 'Landuse', 7);
-addLayer(L.mapbox.tileLayer('pratikyadav.b062c09f'), 'Labels', 8);
+addLayer(L.mapbox.tileLayer('mapbox.satellite'), 'Base Map', 1, true);
+addLayer(L.mapbox.tileLayer('pratikyadav.332dd523'), 'Buildings', 2, false);
+addLayer(L.mapbox.tileLayer('pratikyadav.93f1df6f'), 'Roads', 3, false);
+addLayer(L.mapbox.tileLayer('pratikyadav.640d9a4d'), 'Roads names', 4, false);
+addLayer(L.mapbox.tileLayer('pratikyadav.60790d53'), 'Admin', 5, false);
+addLayer(L.mapbox.tileLayer('pratikyadav.93b9339f'), 'Waterway', 6, false);
+addLayer(L.mapbox.tileLayer('pratikyadav.4417f8bf'), 'Landuse', 7, false);
+addLayer(L.mapbox.tileLayer('pratikyadav.b062c09f'), 'Labels', 8, false);
 
-function addLayer(layer, name, zIndex) {
+function addLayer(layer, name, zIndex, showDefault) {
     layer
-        .setZIndex(zIndex)
-        .addTo(map);
+        .setZIndex(zIndex);
+        
+    if (showDefault) {
+        layer.addTo(map);
+    }
 
     // Create a simple layer switcher that
     // toggles layers on and off.
