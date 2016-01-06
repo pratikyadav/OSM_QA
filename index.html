@@ -81,7 +81,9 @@ function addLayer(layer, name, zIndex, showDefault) {
     // toggles layers on and off.
     var link = document.createElement('a');
         link.href = '#';
-        link.className = 'active';
+        if (showDefault) {
+          link.className = 'active';
+        }
         link.innerHTML = name;
 
     link.onclick = function(e) {
